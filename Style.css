@@ -1,0 +1,596 @@
+/* --- RESET E VARIÁVEIS --- */
+:root {
+    --primary-red: #FF0000;
+    /* Vermelho do Logo */
+    --dark-grey: #333333;
+    --light-grey: #f4f4f4;
+    --white: #ffffff;
+    --text-color: #555555;
+    --font-main: 'Montserrat', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+    /* Para títulos elegantes */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--white);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* --- UTILITÁRIOS --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+h2 {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: var(--dark-grey);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h6 {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: var(--dark-grey);
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 100%;
+}
+
+h2 span {
+    color: var(--primary-red);
+}
+
+p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+/* Estilo do Botão Principal com Efeito Hover Elegante */
+/* Estilo do Botão Principal com Efeito Hover Elegante */
+.btn {
+    display: inline-block;
+    /* COR ORIGINAL DO TEXTO: BRANCO */
+    color: var(--white);
+    background-color: var(--primary-red);
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid var(--primary-red);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.3s ease;
+    /* Adicionando transição para a cor do texto */
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background-color: var(--white);
+    transition: all 0.3s;
+    z-index: -1;
+}
+
+/* No HOVER, a cor do texto se torna VERMELHA */
+.btn:hover {
+    color: var(--primary-red);
+}
+
+.btn:hover::after {
+    height: 100%;
+}
+
+/* --- UNIPLAN MED BUTTON (Ajuste específico) --- */
+
+.btn-med {
+    /* COR ORIGINAL DO TEXTO: VERMELHO */
+    color: var(--primary-red);
+    background-color: transparent;
+    border: 2px solid var(--primary-red);
+    margin-top: 20px;
+    /* Ajuste para anular o :after e usar o HOVER simples */
+    overflow: visible;
+    z-index: 0;
+}
+
+/* No HOVER, a cor do texto se torna BRANCA e o fundo VERMELHO */
+.btn-med:hover {
+    background-color: var(--primary-red);
+    color: var(--white);
+}
+
+.btn:hover::after {
+    height: 100%;
+}
+
+/* --- ANIMAÇÕES (Scroll Reveal CSS) --- */
+/* Elementos que devem animar */
+.os-animation {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.9s ease-out;
+    /* Transição mais lenta para elegância */
+}
+
+/* Estado animado (visível) */
+.os-animation.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animação do Hero (entrada imediata ao carregar a página) */
+
+.hero-title,
+.hero-subtitle,
+.hero-btn {
+    opacity: 0;
+    animation: fadeUpHero 1s ease-out forwards;
+}
+
+.hero-subtitle {
+    animation-delay: 0.3s;
+}
+
+.hero-btn {
+    animation-delay: 0.6s;
+}
+
+@keyframes fadeUpHero {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- HEADER --- */
+header {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+}
+
+.logo img {
+    height: 60px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-weight: 500;
+    color: var(--dark-grey);
+    font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+    color: var(--primary-red);
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    height: 80vh;
+    background-color: #ddd;
+    /* Placeholder FOTO */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./Paisagem.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    position: relative;
+}
+
+.hero-content h1 {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+}
+
+/* --- SOBRE --- */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 50px;
+    align-items: center;
+
+}
+
+.about-img-placeholder {
+    height: 400px;
+    overflow: hidden;
+    border-radius: 8px;
+
+    /* ADIÇÃO: Garante fundo branco caso a imagem falhe ou tenha transparência */
+    background-image: url('./fachada.png');
+}
+
+/* A imagem em si */
+.about-img-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* Adição: Garante opacidade total */
+    opacity: 1;
+    background-image: url('./fachada.png');
+}
+
+/* --- UNIPLAN MED (PARCERIA) --- */
+.uniplan-med {
+    background-color: #f9f9f9;
+    border-left: 5px solid var(--primary-red);
+}
+
+.med-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.med-content h3 {
+    font-size: 1.8rem;
+    color: var(--dark-grey);
+    margin-bottom: 20px;
+}
+
+.btn-med {
+    background-color: transparent;
+    color: var(--primary-red);
+    border: 2px solid var(--primary-red);
+    margin-top: 20px;
+}
+
+.btn-med:hover {
+    background-color: var(--primary-red);
+    color: var(--white);
+}
+
+
+/* --- PLANOS FUNERÁRIOS --- */
+.plans-grid {
+    display: grid;
+    /* Ajustado para caber 4 na linha ou 2x2 em telas menores */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.plan-card {
+    background: var(--white);
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 30px 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.plan-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-red);
+}
+
+.plan-card h3 {
+    color: var(--primary-red);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.plan-price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--dark-grey);
+    margin: 15px 0;
+}
+
+.plan-features {
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+.plan-features li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+/* Destaque para o Plano Recomendado */
+.featured-plan {
+    border: 3px solid var(--primary-red) !important;
+    transform: translateY(-10px) !important;
+    box-shadow: 0 10px 25px rgba(255, 0, 0, 0.2) !important;
+}
+
+.highlight-label {
+    background: var(--primary-red);
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+/* --- COROAS DE FLORES (CARROSSEL CSS) --- */
+/* --- COROAS DE FLORES --- */
+.flowers {
+    background-image: url('./campinho.png');
+    color: var(--white);
+    text-align: center;
+}
+
+.flowers h2 {
+    color: var(--white);
+}
+
+.flowers p {
+    color: #ffffff;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
+.gallery-carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 20px;
+    scroll-behavior: smooth;
+}
+
+.gallery-item {
+    min-width: 300px;
+    height: 300px;
+    /* Garante que o contêiner do item seja um quadrado perfeito */
+
+    /* REMOVIDO: background-color, display: flex, align-items, justify-content (Eram do placeholder) */
+
+    border-radius: 8px;
+    overflow: hidden;
+    /* Importante para garantir que a imagem não vaze do contêiner */
+    flex-shrink: 0;
+}
+
+/* NOVO: Regra para ajustar a imagem dentro do item */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    /* ESSENCIAL: Garante que a imagem preencha 100% (300x300px) sem distorcer, cortando o excesso */
+    object-fit: cover;
+    display: block;
+}
+
+/* Scrollbar personalizada para o carrossel */
+.gallery-carousel::-webkit-scrollbar {
+    height: 8px;
+}
+
+.gallery-carousel::-webkit-scrollbar-thumb {
+    background: var(--primary-red);
+    border-radius: 4px;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: #1a1a1a;
+    color: #888;
+    padding: 60px 0 20px 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-col h4 {
+    color: var(--white);
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.footer-col a:hover {
+    color: var(--primary-red);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    font-size: 0.85rem;
+}
+
+/* --- RESPONSIVO --- */
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-img-placeholder {
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 0;
+    }
+
+    .nav-links {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero {
+        height: 65vh;
+    }
+
+    .section-padding {
+        padding: 60px 0;
+    }
+}
+
+/* --- ESTILOS DO MODAL/LIGHTBOX (NOVO) --- */
+
+/* Fundo escuro que cobre toda a tela */
+/* Fundo escuro que cobre toda a tela (Invisível por padrão) */
+/* --- ESTILOS DO MODAL/LIGHTBOX (NOVO) --- */
+
+/* 1. Fundo escuro que cobre toda a tela */
+.modal {
+    display: none; /* Oculto por padrão */
+    position: fixed;
+    z-index: 2000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+    opacity: 0; /* Começa invisível */
+    /* CRUCIAL: Transição para o FADE IN do fundo */
+    transition: opacity 0.4s ease; 
+}
+
+/* Modal visível: O JavaScript ativa o display e a opacidade */
+.modal.visible {
+    display: block;
+    opacity: 1; /* Fundo escurece suavemente */
+}
+
+/* 2. Conteúdo do Modal (A imagem) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 90%;
+    max-width: 700px;
+    height: auto;
+    max-height: 90%;
+    border-radius: 8px;
+    cursor: zoom-in;
+    
+    /* ESTADO INICIAL DA IMAGEM: Começa menor e invisível */
+    transform: scale(0.7); 
+    opacity: 0;
+    /* CRUCIAL: Transição para o FADE IN e ZOOM da imagem */
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease-in-out; 
+}
+
+/* 3. Animação da Imagem ao Abrir o Modal */
+.modal.visible .modal-content {
+    /* ESTADO FINAL: Retorna ao tamanho 100% (cresce) e fica visível */
+    transform: scale(1); 
+    opacity: 1; 
+}
+
+/* Legenda (Opcional, mas útil) */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Botão Fechar */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f100;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #bbb;
+}
+
+/* Responsividade: Diminui a imagem em telas menores */
+@media only screen and (max-width: 700px) {
+    .modal-content {
+        width: 100%;
+    }
+}
