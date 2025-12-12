@@ -1,13 +1,13 @@
 /* Estilos específicos para o Header do Geninho */
 .geninho-hero {
     background: url('./fundoGen.png') no-repeat center center/cover;
-    height: 85vh; /* Altura do Hero */
+    height: 85vh;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #fff; /* Texto branco no fundo escuro */
+    color: #fff;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
 
@@ -18,7 +18,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.4); /* Overlay escuro para melhorar a leitura */
+    background: rgba(0, 0, 0, 0.4);
     z-index: 1;
 }
 
@@ -39,7 +39,7 @@
     margin-bottom: 30px;
 }
 
-/* Adaptação da seção de história para o layout */
+/* --- SEÇÃO DA HISTÓRIA --- */
 .history-section {
     padding: 80px 0;
     background-color: #f8f8f8;
@@ -52,20 +52,27 @@
     align-items: center;
 }
 
-/* --- NOVO: Regra para a imagem da História (Responsividade e Foco) --- */
+/* CORREÇÃO AQUI: Força o bloco de texto para a 2ª posição (Direita) */
+/* Isso faz a imagem ir automaticamente para a Esquerda */
+.history-text {
+    order: 2;
+}
+
+/* Estilo para o span dentro do título */
+.history-text h2 span {
+    color: var(--primary-red);
+}
+
+/* Regras para a imagem da história */
 .history-grid img {
     width: 100%;
-    height: 400px; /* Altura fixa para manter o padrão no Desktop */
-    object-fit: cover; /* Corta o excesso sem distorcer a imagem */
+    height: 400px;
+    object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.history-text h2 span {
-    color: var(--primary-red); /* Assume que você tem a variável no style.css */
-}
-
-/* Galeria de Momentos */
+/* --- GALERIA DE MOMENTOS --- */
 .image-gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -75,7 +82,7 @@
 
 .image-gallery-grid img {
     width: 100%;
-    height: 250px; /* Altura fixa para as fotos da galeria ficarem alinhadas */
+    height: 250px;
     object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -87,15 +94,21 @@
     transform: scale(1.03);
 }
 
-/* Responsividade (Celular) */
+/* --- RESPONSIVIDADE (Celular) --- */
 @media (max-width: 900px) {
     .history-grid {
         grid-template-columns: 1fr;
     }
 
-    /* Ajuste crucial para ver o rosto no celular */
+    /* No celular, mantemos o texto embaixo da foto (ordem lógica) */
+    /* Se quiser o texto EM CIMA no celular, remova a linha 'order: 2' abaixo */
+    .history-text {
+        order: 2; /* Mantém foto em cima, texto embaixo */
+    }
+
+    /* Ajuste para focar no rosto da pessoa na imagem vertical */
     .history-grid img {
-        height: 300px; /* Altura ajustada para mobile */
-        object-position: top center; /* Foca no TOPO da imagem (rosto) */
+        height: 300px;
+        object-position: top center; /* Foca no topo da imagem */
     }
 }
