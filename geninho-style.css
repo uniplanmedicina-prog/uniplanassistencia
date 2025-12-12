@@ -121,3 +121,10 @@
         object-position: top center; /* Foca no topo da imagem */
     }
 }
+.h22{
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: #ad5f5f;
+    margin-bottom: 20px;
+    text-align: center;
+}
