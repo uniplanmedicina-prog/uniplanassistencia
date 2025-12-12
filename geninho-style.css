@@ -1,5 +1,8 @@
 /* Estilos específicos para o Header do Geninho */
+
+/* 1. PADRÃO (PC e Tablet - Imagem Horizontal) */
 .geninho-hero {
+    /* Imagem Padrão (PC/Tablet) - Presume que 'fundoGen.png' é horizontal */
     background: url('./fundoGen.png') no-repeat center center/cover;
     height: 85vh;
     position: relative;
@@ -52,8 +55,7 @@
     align-items: center;
 }
 
-/* CORREÇÃO AQUI: Força o bloco de texto para a 2ª posição (Direita) */
-/* Isso faz a imagem ir automaticamente para a Esquerda */
+/* CORREÇÃO PARA INVERTER A ORDEM NO DESKTOP (Imagem Esquerda, Texto Direita) */
 .history-text {
     order: 2;
 }
@@ -94,16 +96,23 @@
     transform: scale(1.03);
 }
 
-/* --- RESPONSIVIDADE (Celular) --- */
+/* --- RESPONSIVIDADE (Celular: Max-width 900px) --- */
 @media (max-width: 900px) {
+    /* 2. INCLUINDO A IMAGEM DE FUNDO ESPECÍFICA PARA MOBILE */
+    .geninho-hero {
+        /* Imagem Específica para Mobile (Presume que 'fundoGen-mobile.png' é vertical ou otimizada) */
+        background: url('./fundoGen-mobile.png') no-repeat center center/cover;
+        height: 70vh; /* Ajuste para melhor visualização no celular */
+    }
+    
+    /* Regras da História/Grid */
     .history-grid {
         grid-template-columns: 1fr;
     }
 
-    /* No celular, mantemos o texto embaixo da foto (ordem lógica) */
-    /* Se quiser o texto EM CIMA no celular, remova a linha 'order: 2' abaixo */
+    /* Ordem no Celular: (1) Foto, (2) Texto */
     .history-text {
-        order: 2; /* Mantém foto em cima, texto embaixo */
+        order: 2; 
     }
 
     /* Ajuste para focar no rosto da pessoa na imagem vertical */
