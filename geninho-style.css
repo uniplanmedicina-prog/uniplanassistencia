@@ -52,10 +52,20 @@
     align-items: center;
 }
 
+/* --- NOVO: Regra para a imagem da História (Responsividade e Foco) --- */
+.history-grid img {
+    width: 100%;
+    height: 400px; /* Altura fixa para manter o padrão no Desktop */
+    object-fit: cover; /* Corta o excesso sem distorcer a imagem */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
 .history-text h2 span {
     color: var(--primary-red); /* Assume que você tem a variável no style.css */
 }
 
+/* Galeria de Momentos */
 .image-gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -65,7 +75,8 @@
 
 .image-gallery-grid img {
     width: 100%;
-    height: auto;
+    height: 250px; /* Altura fixa para as fotos da galeria ficarem alinhadas */
+    object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
@@ -76,8 +87,15 @@
     transform: scale(1.03);
 }
 
+/* Responsividade (Celular) */
 @media (max-width: 900px) {
     .history-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* Ajuste crucial para ver o rosto no celular */
+    .history-grid img {
+        height: 300px; /* Altura ajustada para mobile */
+        object-position: top center; /* Foca no TOPO da imagem (rosto) */
     }
 }
