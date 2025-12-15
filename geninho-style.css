@@ -65,11 +65,13 @@
     color: var(--primary-red);
 }
 
-/* Regras para a imagem da história */
+/* Regras para a imagem da história - DESKTOP/PADRÃO */
 .history-grid img {
     width: 100%;
     height: 400px;
     object-fit: cover;
+    /* AQUI GARANTIMOS QUE O FOCO É CENTRALIZADO NO PC */
+    object-position: center center; 
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
@@ -98,11 +100,10 @@
 
 /* --- RESPONSIVIDADE (Celular: Max-width 900px) --- */
 @media (max-width: 900px) {
-    /* 2. INCLUINDO A IMAGEM DE FUNDO ESPECÍFICA PARA MOBILE */
+    /* Imagem de Fundo Específica para Mobile */
     .geninho-hero {
-        /* Imagem Específica para Mobile (Presume que 'fundoGen-mobile.png' é vertical ou otimizada) */
         background: url('./fundoGen-mobile.png') no-repeat center center/cover;
-        height: 70vh; /* Ajuste para melhor visualização no celular */
+        height: 70vh;
     }
     
     /* Regras da História/Grid */
@@ -118,8 +119,7 @@
     /* Ajuste para focar no rosto da pessoa na imagem vertical */
     .history-grid img {
         height: 300px;
-        object-position: top center; /* Foca no topo da imagem */
+        /* AQUI O FOCO É NO TOPO, APENAS NO CELULAR */
+        object-position: top center; 
     }
 }
-
-
