@@ -58,7 +58,7 @@ img {
 h2 {
     font-family: var(--font-serif);
     font-size: 2.5rem;
-    color: #ad5f5f;
+    color: #282828;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -595,3 +595,4 @@ footer {
     }
 
 }
+
